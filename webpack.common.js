@@ -18,9 +18,19 @@ module.exports = {
       },
       {
         test: /\.styl$/,
-        loader: 'style-loader!css-loader!stylus-loader'
-      }
-    ]
+    		use: [
+          { loader: 'style-loader' },
+          {
+            loader: 'css-loader',				  
+            options: {
+              modules: true,
+              localIdentName: '[name]-[local][hash:base64:6]'
+            }
+          },
+          { loader: "stylus-loader" }
+        ]
+			}		
+	 ]
   },
   plugins: [
     new HtmlPlugin({
