@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from 'react-dom'
 import { AppContainer } from 'react-hot-loader'
 
-import App from './app.jsx'
+import App from './app'
 
 const rootEl = document.getElementById('app')
 
@@ -14,8 +14,8 @@ const wrapApp = AppComponent =>
 render(wrapApp(App), rootEl)
 
 if (module.hot) {
-  module.hot.accept('./app.jsx', () => {
-    const NextApp = require('./app.jsx').default
+  module.hot.accept('./app', () => {
+    const NextApp = require('./app').default
     ReactDOM.render(wrapApp(NextApp), rootEl)
   })
 }

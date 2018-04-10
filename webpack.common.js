@@ -29,6 +29,9 @@ module.exports = {
 			}		
 	 ]
   },
+  resolve: {
+    extensions: ['.js', '.jsx']
+  },
   plugins: [
     new HtmlPlugin({
       template: '!pug-loader!src/index.pug'
