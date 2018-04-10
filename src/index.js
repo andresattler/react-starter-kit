@@ -1,6 +1,21 @@
 import React from 'react'
-import {render} from 'react-dom'
+import { render } from 'react-dom'
+import { AppContainer } from 'react-hot-loader'
 
-const App = () => <h1>Hello World!</h1>
+import App from './app.jsx'
 
-render(<App />, document.getElementById('app'))
+const rootEl = document.getElementById('app')
+
+const wrapApp = AppComponent =>
+  <AppContainer>
+    <AppComponent />
+  </AppContainer>
+
+render(wrapApp(App), rootEl)
+
+if (module.hot) {
+  module.hot.accept('./app.jsx', () => {
+    const NextApp = require('./app.jsx').default
+    ReactDOM.render(wrapApp(NextApp), rootEl)
+  })
+}
