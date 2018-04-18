@@ -2,7 +2,7 @@ const path = require('path')
 const HtmlPlugin = require('html-webpack-plugin')
 
 module.exports = {
-   output: {
+  output: {
     filename: '[name].js',
     path: path.resolve(__dirname, 'dist')
   },
@@ -12,22 +12,8 @@ module.exports = {
         test: /\.(js|jsx)$/,
         exclude: /node_modules/,
         loader: 'babel-loader'
-      },
-      {
-        test: /\.styl$/,
-    		use: [
-          { loader: 'style-loader' },
-          {
-            loader: 'css-loader',				  
-            options: {
-              modules: true,
-              localIdentName: '[name]-[local][hash:base64:6]'
-            }
-          },
-          { loader: "stylus-loader" }
-        ]
-			}		
-	 ]
+      }
+    ]
   },
   resolve: {
     extensions: ['.js', '.jsx']

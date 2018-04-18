@@ -13,9 +13,7 @@ module.exports = merge(common, {
     rules: [
       {
         test: /\.styl$/,
-        use: ExtractTextPlugin.extract({
-          use: 'css-loader!stylus-loader'
-        })
+        use: ExtractTextPlugin.extract('css-loader?modules,localIdentName="[name]-[local]-[hash:base64:6]",camelCase!stylus-loader')
       }
     ]
   },
